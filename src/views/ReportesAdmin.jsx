@@ -57,7 +57,7 @@ export default function ReportesAdmin() {
         </div>
       ) : (
         <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-yellow-800 text-sm">
-          <span className="font-bold">Aviso de Restricción (RFRN01):</span> Las opciones de respaldo, exportación masiva y administración de usuarios están restringidas exclusivamente al rol de Administrador.
+          <span className="font-bold">Aviso de Restrició (RFRN01):</span> Las opciones de respaldo, exportación masiva y administración de usuarios están restringidas exclusivamente al rol de Administrador.
         </div>
       )}
     </div>
