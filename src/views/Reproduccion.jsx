@@ -6,8 +6,16 @@ export default function Reproduccion() {
     equinoId: '',
     tipoEvento: 'Palpación',
     fechaServicio: '',
+    estadoPrenez: 'En Observación',
+    semental: '',
     observaciones: ''
   });
+
+  // Estado para simular una lista de registros recientes en pantalla
+  const [registros, setRegistros] = useState([
+    { id: 1, equino: 'Yegua Lucero', evento: 'Monta/IA', fecha: '2025-10-15', partoProbable: '2026-09-20', estado: 'Gestante' },
+    { id: 2, equino: 'Alazán Relámpago', evento: 'Palpación', fecha: '2026-01-10', partoProbable: '-', estado: 'En Observación' }
+  ]);
 
   // Cálculo automático de la fecha probable de parto (gestación equina aprox. 340 días)
   const calcularFechaParto = (fecha) => {
@@ -19,12 +27,35 @@ export default function Reproduccion() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Registrando evento reproductivo:", formData);
-    alert("Evento reproductivo registrado correctamente.");
+    const nuevaFechaParto = calcularFechaParto(formData.fechaServicio);
+    
+    const nuevoRegistro = {
+      id: Date.now(),
+      equino: formData.equinoId,
+      evento: formData.tipoEvento,
+      fecha: formData.fechaServicio,
+      partoProbable: formData.tipoEvento !== 'Palpación' ? nuevaFechaParto : 'N/A',
+      estado: formData.estadoPrenez
+    };
+
+    setRegistros([nuevoRegistro, ...registros]);
+    alert("¡Registro reproductivo guardado y sincronizado correctamente!");
+    
+    // Limpiar formulario básico
+    setFormData({
+      equinoId: '',
+      tipoEvento: 'Palpación',
+      fechaServicio: '',
+      estadoPrenez: 'En Observación',
+      semental: '',
+      observaciones: ''
+    });
   };
 
   return (
     <div className="p-6 max-w-5xl mx-auto bg-[#F8F9FA] rounded-lg shadow-md mt-6 border border-gray-200 space-y-8">
+      
+      {/* Encabezado del Módulo */}
       <div>
         <h2 className="text-2xl font-bold text-[#2C5E3E]">
           Control Reproductivo y Trazabilidad de Gestación (RFI03)
@@ -34,12 +65,13 @@ export default function Reproduccion() {
         </p>
       </div>
       
+      {/* Formulario Principal */}
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 space-y-4">
         <h3 className="text-lg font-semibold text-[#00324D] border-b pb-2">Registrar Nuevo Evento Reproductivo</h3>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">Microchip o Nombre del Ejemplar (Yegua)</label>
+            <label className="block text-sm font-medium text-gray-700">Microchip o Nombre del Equino (Yegua)</label>
             <input 
               type="text" 
               className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-[#39A900] focus:border-[#39A900]"
@@ -129,6 +161,7 @@ export default function Reproduccion() {
         </button>
       </form>
 
+      {/* Tabla de Historial Reciente en Pantalla */}
       <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
         <h3 className="text-lg font-semibold text-[#00324D] mb-4">Historial Reciente de Eventos</h3>
         <div className="overflow-x-auto">
@@ -162,6 +195,7 @@ export default function Reproduccion() {
           </table>
         </div>
       </div>
+
     </div>
   );
 }

@@ -1,122 +1,58 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import Reproduccion from './views/Reproduccion';
+import NutricionBitacora from './views/NutricionBitacora';
+import ReportesAdmin from './views/ReportesAdmin';
+import './App.css';
+import './index.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [seccionActiva, setSeccionActiva] = useState('reproduccion');
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+    <div className="min-h-screen bg-[#F8F9FA]">
+      {/* Barra de Navegación Institucional STL Equinos */}
+      <nav className="bg-[#00324D] text-white shadow-md p-4 sticky top-0 z-50">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+          <div>
+            <h1 className="text-xl font-bold tracking-wide">
+              STL Equinos <span className="text-[#39A900] text-sm font-normal">| Módulos Persona 2</span>
+            </h1>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <button 
+              onClick={() => setSeccionActiva('reproduccion')}
+              className={`px-4 py-2 rounded-md text-sm font-semibold transition ${
+                seccionActiva === 'reproduccion' ? 'bg-[#39A900] text-white shadow' : 'bg-[#002233] text-gray-300 hover:bg-gray-700'
+              }`}
+            >
+              Control Reproductivo (RFI03)
+            </button>
+            <button 
+              onClick={() => setSeccionActiva('nutricion')}
+              className={`px-4 py-2 rounded-md text-sm font-semibold transition ${
+                seccionActiva === 'nutricion' ? 'bg-[#39A900] text-white shadow' : 'bg-[#002233] text-gray-300 hover:bg-gray-700'
+              }`}
+            >
+              Nutrición y Bitácora (RFI04)
+            </button>
+            <button 
+              onClick={() => setSeccionActiva('reportes')}
+              className={`px-4 py-2 rounded-md text-sm font-semibold transition ${
+                seccionActiva === 'reportes' ? 'bg-[#39A900] text-white shadow' : 'bg-[#002233] text-gray-300 hover:bg-gray-700'
+              }`}
+            >
+              Admin y Reportes (RFCS02)
+            </button>
+          </div>
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+      </nav>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      {/* Contenido Dinámico según la Pestaña Seleccionada */}
+      <main className="py-6 px-4">
+        {seccionActiva === 'reproduccion' && <Reproduccion />}
+        {seccionActiva === 'nutricion' && <NutricionBitacora />}
+        {seccionActiva === 'reportes' && <ReportesAdmin />}
+      </main>
+    </div>
+  );
 }
-
-export default App
