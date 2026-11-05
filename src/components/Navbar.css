@@ -1,0 +1,30 @@
+.sena-navbar {
+  background-color: #00324D; /* Azul Oscuro Institucional */
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  border-bottom: 4px solid #39A900; /* Verde SENA */
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.sena-logo-text {
+  color: #39A900;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.role-badge {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
