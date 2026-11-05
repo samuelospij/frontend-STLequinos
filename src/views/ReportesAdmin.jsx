@@ -122,14 +122,8 @@ export default function ReportesAdmin() {
           </div>
         </div>
       ) : (
-        <div className="p-5 bg-yellow-50 border border-yellow-200 rounded-lg text-yellow-900 space-y-2">
-          <div className="flex items-center space-x-2 font-bold text-base">
-            <span>⚠️</span>
-            <span>Aviso de Restricción de Acceso (RFRN01)</span>
-          </div>
-          <p className="text-sm text-yellow-800">
-            Las opciones de respaldo, exportación masiva de bases de datos y administración general están restringidas exclusivamente al rol de <strong>Administrador</strong>. Como <strong>{rolActual}</strong>, cuentas con permisos limitados a las funciones operativas y de consulta zootécnica correspondientes.
-          </p>
+        <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-yellow-800 text-sm">
+          <span className="font-bold">Aviso de Restrició (RFRN01):</span> Las opciones de respaldo, exportación masiva y administración de usuarios están restringidas exclusivamente al rol de Administrador.
         </div>
       )}
     </div>
