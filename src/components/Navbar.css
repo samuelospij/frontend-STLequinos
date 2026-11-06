@@ -1,0 +1,45 @@
+.sena-navbar {
+  background-color: #00324D;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  border-bottom: 4px solid #39A900;
+  height: 65px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.sena-logo-text {
+  color: #39A900;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.divider {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.project-title {
+  color: #FFFFFF;
+}
+
+.role-badge {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #D4AF37;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
