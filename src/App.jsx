@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import Dashboard from './views/Dashboard';
 import Ejemplares from './views/Ejemplares';
+import Sanidad from './views/Sanidad';
 import './App.css';
 
 export default function App() {
@@ -18,12 +19,7 @@ export default function App() {
         <main className="app-content">
           {vistaActual === 'dashboard' && <Dashboard setVistaActual={setVistaActual} />}
           {vistaActual === 'ejemplares' && <Ejemplares />}
-          {vistaActual === 'sanidad' && (
-            <div>
-              <h2>Módulo de Salud</h2>
-              <p>Próximamente plan sanitario y vacunas.</p>
-            </div>
-          )}
+          {vistaActual === 'sanidad' && <Sanidad />}
         </main>
       </div>
     </div>
