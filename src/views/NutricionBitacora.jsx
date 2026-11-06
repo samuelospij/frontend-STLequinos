@@ -11,43 +11,13 @@ export default function NutricionBitacora() {
     novedadCampo: ''
   });
 
-  const [registros, setRegistros] = useState([
-    { 
-      id: 1, 
-      equino: 'Rayo / Pesebrera 01', 
-      concentrado: 'Alto Rendimiento / Trabajo', 
-      kilos: '5.0 kg', 
-      frecuencia: '2 Veces al Día', 
-      stock: '40 kg', 
-      novedad: 'Consumo total sin novedad en pesebrera.' 
-    },
-    { 
-      id: 2, 
-      equino: 'Lucero / Pesebrera 03', 
-      concentrado: 'Cría y Reproducción', 
-      kilos: '4.5 kg', 
-      frecuencia: '3 Veces al Día (Fraccionada)', 
-      stock: '25 kg', 
-      novedad: 'Se ajusta suplemento vitamínico por gestación.' 
-    }
-  ]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    const nuevoRegistro = {
-      id: Date.now(),
-      equino: nutricionData.equinoId,
-      concentrado: nutricionData.tipoConcentrado,
-      kilos: `${nutricionData.kilosRacion} kg`,
-      frecuencia: nutricionData.frecuencia,
-      stock: nutricionData.stockActual ? `${nutricionData.stockActual} kg` : 'N/A',
-      novedad: nutricionData.novedadCampo || 'Sin novedades registradas.'
-    };
-
-    setRegistros([nuevoRegistro, ...registros]);
-    alert("¡Registro de nutrición y bitácora guardado con éxito (RFI04)!");
+    // Lógica para guardar la información
+    alert("¡Registro de consumo y bitácora guardado con éxito!");
     
+    // Limpiar el formulario
     setNutricionData({
       equinoId: '',
       tipoConcentrado: 'Concentrado Mantenimiento',
@@ -60,13 +30,7 @@ export default function NutricionBitacora() {
 
   return (
     <div className="nutricion-container">
-      {/* Encabezado del Módulo */}
-      <div className="nutricion-header">
-        <h2>Nutrición y Bitácora Operativa de Campo (RFI04)</h2>
-        <p>Control estricto de raciones alimenticias, consumo diario por ejemplar, frecuencia e inventario de insumos productivos en la unidad.</p>
-      </div>
       
-      {/* Formulario de Registro */}
       <form onSubmit={handleSubmit} className="nutricion-form">
         <h3>Registrar Consumo y Dieta Diaria</h3>
         
@@ -133,51 +97,21 @@ export default function NutricionBitacora() {
           </div>
         </div>
 
-        <div className="nutricion-form-group" style={{ marginBottom: '1.25rem' }}>
+        <div className="nutricion-form-group">
           <label>Bitácora de Novedades y Comportamiento en Pesebrera</label>
           <textarea 
-            rows="2"
             value={nutricionData.novedadCampo}
             onChange={(e) => setNutricionData({...nutricionData, novedadCampo: e.target.value})}
             placeholder="Describa el consumo total, rechazo parcial de alimento o novedades operativas..."
           ></textarea>
         </div>
 
-        <button type="submit" className="btn-nutricion-submit">
-          Registrar Consumo y Actualizar Bitácora
-        </button>
-      </form>
-
-      {/* Historial de Registros */}
-      <div className="tabla-nutricion-container">
-        <h3>Historial de Consumo y Bitácora de Campo</h3>
-        <div className="tabla-nutricion-wrapper">
-          <table className="tabla-nutricion">
-            <thead>
-              <tr>
-                <th>Ejemplar / Pesebrera</th>
-                <th>Concentrado</th>
-                <th>Ración</th>
-                <th>Frecuencia</th>
-                <th>Stock</th>
-                <th>Novedad de Campo</th>
-              </tr>
-            </thead>
-            <tbody>
-              {registros.map((item) => (
-                <tr key={item.id}>
-                  <td style={{ fontWeight: 500 }}>{item.equino}</td>
-                  <td style={{ color: '#00324D' }}>{item.concentrado}</td>
-                  <td style={{ fontWeight: 700, color: '#39A900' }}>{item.kilos}</td>
-                  <td style={{ color: '#4B5563', fontSize: '0.8rem' }}>{item.frecuencia}</td>
-                  <td style={{ fontWeight: 600 }}>{item.stock}</td>
-                  <td style={{ fontStyle: 'italic', fontSize: '0.8rem' }}>{item.novedad}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="btn-nutricion-submit-container">
+          <button type="submit" className="btn-nutricion-submit">
+            Registrar Consumo y Actualizar Bitácora
+          </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }

@@ -1,12 +1,8 @@
-/* ==========================================================================
-   Estilos específicos para el Módulo de Nutrición y Bitácora (RFI04) - STL Equinos
-   ========================================================================== */
-
 .nutricion-container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 1.5rem;
-  background-color: #F8F9FA; /* Blanco Pesebrera - RNF-USA-01 */
+  background-color: #F8F9FA;
   border-radius: 0.75rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
   border: 1px solid #E5E7EB;
@@ -17,19 +13,21 @@
 .nutricion-header h2 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #00324D; /* Azul Institucional SENA */
+  color: #00324D;
   margin-bottom: 0.25rem;
+  text-align: center;
 }
 
 .nutricion-header p {
   font-size: 0.875rem;
   color: #4B5563;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .nutricion-form {
   background-color: #FFFFFF;
-  padding: 1.5rem;
+  padding: 2rem;
   border-radius: 0.5rem;
   border: 1px solid #E5E7EB;
   margin-bottom: 2rem;
@@ -40,28 +38,29 @@
   font-size: 1.125rem;
   font-weight: 600;
   color: #00324D;
-  border-bottom: 2px solid #F3F4F6;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.25rem;
+  border-bottom: 1px solid #F3F4F6;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .nutricion-form-grid-2 {
   display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 1rem;
-  margin-bottom: 1rem;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .nutricion-form-grid-3 {
   display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 1rem;
-  margin-bottom: 1rem;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 @media (min-width: 768px) {
   .nutricion-form-grid-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr 1fr;
   }
   .nutricion-form-grid-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -77,87 +76,58 @@
   font-size: 0.875rem;
   font-weight: 500;
   color: #374151;
-  margin-bottom: 0.375rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 .nutricion-form-group input,
 .nutricion-form-group select,
 .nutricion-form-group textarea {
   width: 100%;
-  padding: 0.625rem 0.875rem;
+  padding: 0.75rem;
   border: 1px solid #D1D5DB;
-  border-radius: 0.5rem;
-  font-size: 0.95rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
   color: #1F2937;
   background-color: #FFFFFF;
   transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.nutricion-form-group input::placeholder,
+.nutricion-form-group textarea::placeholder {
+  color: #9CA3AF;
 }
 
 .nutricion-form-group input:focus,
 .nutricion-form-group select:focus,
 .nutricion-form-group textarea:focus {
   outline: none;
-  border-color: #39A900; /* Verde SENA */
+  border-color: #39A900;
   box-shadow: 0 0 0 3px rgba(57, 169, 0, 0.15);
 }
 
+.nutricion-form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.btn-nutricion-submit-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
 .btn-nutricion-submit {
-  width: 100%;
-  background-color: #39A900; /* Verde SENA */
+  background-color: #39A900;
   color: #FFFFFF;
   font-weight: 600;
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
+  padding: 0.75rem 2rem;
+  border-radius: 0.375rem;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s, box-shadow 0.2s;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s;
 }
 
 .btn-nutricion-submit:hover {
-  background-color: #2C5E3E; /* Verde Oscuro institucional */
-}
-
-.tabla-nutricion-container {
-  background-color: #FFFFFF;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  border: 1px solid #E5E7EB;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.02);
-}
-
-.tabla-nutricion-container h3 {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #00324D;
-  margin-bottom: 1rem;
-}
-
-.tabla-nutricion-wrapper {
-  overflow-x: auto;
-}
-
-.tabla-nutricion {
-  width: 100%;
-  text-align: left;
-  border-collapse: collapse;
-  font-size: 0.875rem;
-}
-
-.tabla-nutricion th {
-  background-color: #F3F4F6;
-  color: #374151;
-  padding: 0.75rem;
-  font-weight: 600;
-  border-bottom: 1px solid #E5E7EB;
-}
-
-.tabla-nutricion td {
-  padding: 0.75rem;
-  border-bottom: 1px solid #E5E7EB;
-  color: #1F2937;
-}
-
-.tabla-nutricion tr:hover {
-  background-color: #F9FAFB;
+  background-color: #2C5E3E;
 }

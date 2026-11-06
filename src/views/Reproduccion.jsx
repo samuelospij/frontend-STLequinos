@@ -4,7 +4,7 @@ import './Reproduccion.css';
 export default function Reproduccion() {
   const [formData, setFormData] = useState({
     equinoId: '',
-    tipoEvento: 'Palpación',
+    tipoEvento: 'Palpación / Diagnóstico',
     fechaServicio: '',
     estadoPrenez: 'En Observación',
     semental: '',
@@ -12,11 +12,10 @@ export default function Reproduccion() {
   });
 
   const [registros, setRegistros] = useState([
-    { id: 1, equino: 'Yegua Lucero', evento: 'Monta/IA', fecha: '2025-10-15', partoProbable: '2026-09-20', estado: 'Gestante' },
-    { id: 2, equino: 'Alazán Relámpago', evento: 'Palpación', fecha: '2026-01-10', partoProbable: 'N/A', estado: 'En Observación' }
+    { id: 1, equino: 'Yegua Lucero', evento: 'Monta / Inseminación Artificial', fecha: '2025-10-15', partoProbable: '2026-09-20', estado: 'Gestante' },
+    { id: 2, equino: 'Alazán Relámpago', evento: 'Palpación / Diagnóstico', fecha: '2026-01-10', partoProbable: 'N/A', estado: 'En Observación' }
   ]);
 
-  // Algoritmo zootécnico: Cálculo de fecha probable de parto (+340 días)
   const calcularFechaParto = (fecha) => {
     if (!fecha) return '';
     const d = new Date(fecha);
@@ -33,16 +32,16 @@ export default function Reproduccion() {
       equino: formData.equinoId,
       evento: formData.tipoEvento,
       fecha: formData.fechaServicio,
-      partoProbable: formData.tipoEvento !== 'Palpación' ? nuevaFechaParto : 'N/A',
+      partoProbable: formData.tipoEvento === 'Monta / Inseminación Artificial' ? nuevaFechaParto : 'N/A',
       estado: formData.estadoPrenez
     };
 
     setRegistros([nuevoRegistro, ...registros]);
-    alert("¡Registro reproductivo guardado correctamente (RFI03)!");
+    alert("¡Registro reproductivo guardado correctamente!");
     
     setFormData({
       equinoId: '',
-      tipoEvento: 'Palpación',
+      tipoEvento: 'Palpación / Diagnóstico',
       fechaServicio: '',
       estadoPrenez: 'En Observación',
       semental: '',
@@ -53,8 +52,8 @@ export default function Reproduccion() {
   return (
     <div className="reproduccion-container">
       <div className="reproduccion-header">
-        <h2>Control Reproductivo y Trazabilidad de Gestación (RFI03)</h2>
-        <p>Gestión avanzada de ciclos, palpaciones, servicios de monta y cálculo automático de períodos de gestación equina[cite: 4, 7].</p>
+        <h2>Control Reproductivo y Trazabilidad de Gestación</h2>
+        <p>Gestión avanzada de ciclos, palpaciones, servicios de monta y cálculo automático de períodos de gestación equina.</p>
       </div>
       
       <form onSubmit={handleSubmit} className="reproduccion-form">
@@ -78,9 +77,9 @@ export default function Reproduccion() {
               value={formData.tipoEvento}
               onChange={(e) => setFormData({...formData, tipoEvento: e.target.value})}
             >
-              <option value="Palpación">Palpación / Diagnóstico</option>
-              <option value="Celo">Control de Celo</option>
-              <option value="Monta/IA">Monta / Inseminación Artificial</option>
+              <option value="Palpación / Diagnóstico">Palpación / Diagnóstico</option>
+              <option value="Control de Celo">Control de Celo</option>
+              <option value="Monta / Inseminación Artificial">Monta / Inseminación Artificial</option>
             </select>
           </div>
         </div>
@@ -103,14 +102,14 @@ export default function Reproduccion() {
               onChange={(e) => setFormData({...formData, estadoPrenez: e.target.value})}
             >
               <option value="En Observación">En Observación</option>
-              <option value="Gestante">Gestante (Preñada)</option>
-              <option value="Vacía">Vacía / Sin Éxito</option>
+              <option value="Gestante (Preñada)">Gestante (Preñada)</option>
+              <option value="Vacía / Sin Éxito">Vacía / Sin Éxito</option>
             </select>
           </div>
         </div>
 
-        {formData.tipoEvento === 'Monta/IA' && (
-          <div className="form-group" style={{ marginBottom: '1rem' }}>
+        {formData.tipoEvento === 'Monta / Inseminación Artificial' && (
+          <div className="form-group" style={{ marginBottom: '1.5rem' }}>
             <label>Nombre o Código del Semental (Padrillo)</label>
             <input 
               type="text" 
@@ -121,26 +120,27 @@ export default function Reproduccion() {
           </div>
         )}
 
-        {formData.fechaServicio && formData.tipoEvento === 'Monta/IA' && (
+        {formData.fechaServicio && formData.tipoEvento === 'Monta / Inseminación Artificial' && (
           <div className="alerta-parto">
             <strong>Fecha Probable de Parto (+340 días): </strong> 
             {calcularFechaParto(formData.fechaServicio)}
           </div>
         )}
 
-        <div className="form-group" style={{ marginBottom: '1.25rem' }}>
+        <div className="form-group">
           <label>Observaciones Clínicas y Trazabilidad</label>
           <textarea 
-            rows="3"
             value={formData.observaciones}
             onChange={(e) => setFormData({...formData, observaciones: e.target.value})}
             placeholder="Detalles ecográficos, comportamiento o historial de parentesco..."
           ></textarea>
         </div>
 
-        <button type="submit" className="btn-submit">
-          Guardar Registro Reproductivo
-        </button>
+        <div className="btn-submit-container">
+          <button type="submit" className="btn-submit">
+            Guardar Registro Reproductivo
+          </button>
+        </div>
       </form>
 
       <div className="tabla-historial-container">
@@ -165,7 +165,7 @@ export default function Reproduccion() {
                   <td style={{ fontWeight: 600, color: '#2C5E3E' }}>{reg.partoProbable}</td>
                   <td>
                     <span className={`badge-estado ${
-                      reg.estado === 'Gestante' ? 'badge-gestante' : 
+                      reg.estado === 'Gestante' || reg.estado === 'Gestante (Preñada)' ? 'badge-gestante' : 
                       reg.estado === 'En Observación' ? 'badge-observacion' : 'badge-vacia'
                     }`}>
                       {reg.estado}
