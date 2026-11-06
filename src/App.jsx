@@ -9,7 +9,6 @@ import Reproduccion from './views/Reproduccion';
 import NutricionBitacora from './views/NutricionBitacora';
 import ReportesAdmin from './views/ReportesAdmin';
 
-// Importación de estilos
 import './views/Reproduccion.css';
 import './views/NutricionBitacora.css';
 import './views/ReportesAdmin.css';
@@ -24,6 +23,13 @@ export default function App() {
     setUsuarioActivo(usuario);
     setIsAuthenticated(true);
     setVistaActual('dashboard');
+  };
+
+  // Función que destruye la sesión y devuelve al Login
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    setUsuarioActivo(null);
+    setVistaActual('dashboard'); 
   };
 
   const renderizarVista = () => {
@@ -46,18 +52,22 @@ export default function App() {
     }
   };
 
-  // Si no está autenticado, muestra solo la pantalla de Login a pantalla completa
   if (!isAuthenticated) {
     return <Login onLoginSuccess={handleLoginSuccess} />;
   }
 
-  // Si está autenticado, renderiza la estructura principal de la aplicación
   return (
     <div className="app-layout min-h-screen bg-[#F8F9FA] flex flex-col">
       <Navbar usuarioActivo={usuarioActivo} setIsAuthenticated={setIsAuthenticated} />
 
       <div className="app-body flex flex-grow">
-        <Sidebar vistaActual={vistaActual} setVistaActual={setVistaActual} rolUsuario={usuarioActivo.rol} />
+        {/* Aquí pasamos la función onLogout al Sidebar */}
+        <Sidebar 
+          vistaActual={vistaActual} 
+          setVistaActual={setVistaActual} 
+          rolUsuario={usuarioActivo?.rol} 
+          onLogout={handleLogout} 
+        />
 
         <main className="app-content flex-grow p-6">
           {renderizarVista()}
