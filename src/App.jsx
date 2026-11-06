@@ -20,6 +20,24 @@ export default function App() {
           {vistaActual === 'dashboard' && <Dashboard setVistaActual={setVistaActual} />}
           {vistaActual === 'ejemplares' && <Ejemplares />}
           {vistaActual === 'sanidad' && <Sanidad />}
+          {vistaActual === 'reproduccion' && (
+            <div>
+              <h2>Módulo de Reproducción</h2>
+              <p>Próximamente control reproductivo y genealogía.</p>
+            </div>
+          )}
+          {vistaActual === 'nutricion' && (
+            <div>
+              <h2>Módulo de Nutrición</h2>
+              <p>Próximamente raciones y control de alimentación.</p>
+            </div>
+          )}
+          {vistaActual === 'admin' && (
+            <div>
+              <h2>Módulo de Administración y Reportes</h2>
+              <p>Próximamente generación de reportes generales.</p>
+            </div>
+          )}
         </main>
       </div>
     </div>

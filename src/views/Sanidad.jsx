@@ -5,7 +5,7 @@ export default function Sanidad() {
   const [tratamientos, setTratamientos] = useState([
     { id: 1, equino: 'Relámpago', tipo: 'Vacunación Encefalitis', fecha: '2026-10-15', veterinario: 'Dr. Carlos Pérez', estado: 'Completado' },
     { id: 2, equino: 'Gitana', tipo: 'Desparasitación General', fecha: '2026-10-20', veterinario: 'Dra. Ana Gómez', estado: 'Completado' },
-    { id: 3, equino: 'Lucero', type: 'Revisión Dental', fecha: '2026-11-10', veterinario: 'Dr. Carlos Pérez', estado: 'Programado' },
+    { id: 3, equino: 'Lucero', tipo: 'Revisión Dental', fecha: '2026-11-10', veterinario: 'Dr. Carlos Pérez', estado: 'Programado' },
     { id: 4, equino: 'Canelo', tipo: 'Tratamiento Vitamínico', fecha: '2026-11-12', veterinario: 'Dra. Ana Gómez', estado: 'Pendiente' }
   ]);
 
@@ -51,7 +51,6 @@ export default function Sanidad() {
         </div>
       </div>
 
-      {/* Formulario de Registro Sanitario */}
       <div className="form-card">
         <h3>Programar o Registrar Control Sanitario</h3>
         <form onSubmit={handleSubmit} className="sanidad-form">
@@ -113,7 +112,6 @@ export default function Sanidad() {
         </form>
       </div>
 
-      {/* Tabla de Historial Sanitario */}
       <div className="table-card">
         <h3>Historial de Controles y Tratamientos Sanitarios</h3>
         <div className="table-responsive">
