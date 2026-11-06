@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './Dashboard.css';
 
 export default function Dashboard({ setVistaActual }) {
-  // Estado dinámico simulado para las métricas del sistema
   const [metricas] = useState({
     totalEquinos: 24,
     activos: 21,
@@ -10,7 +9,6 @@ export default function Dashboard({ setVistaActual }) {
     controlesAlDia: 19,
   });
 
-  // Lista dinámicamente renderizada para actividad reciente
   const [actividades] = useState([
     { id: 1, hora: '08:30 AM', evento: 'Registro de vacunación completado para el ejemplar', equino: 'Relámpago', estado: 'Completado' },
     { id: 2, hora: '09:15 AM', evento: 'Actualización de ficha zootécnica realizada en', equino: 'Gitana', estado: 'Al Día' },
@@ -37,14 +35,12 @@ export default function Dashboard({ setVistaActual }) {
         </div>
       </div>
 
-      {/* Tarjetas de Métricas Principales */}
       <div className="stats-grid">
         <div className="stat-card">
           <div className="stat-indicator verde"></div>
           <div className="stat-info">
             <span className="stat-label">Total Ejemplares</span>
             <p className="stat-number">{metricas.totalEquinos}</p>
-
           </div>
         </div>
 
@@ -53,7 +49,6 @@ export default function Dashboard({ setVistaActual }) {
           <div className="stat-info">
             <span className="stat-label">Ejemplares Activos</span>
             <p className="stat-number">{metricas.activos}</p>
-
           </div>
         </div>
 
@@ -62,7 +57,6 @@ export default function Dashboard({ setVistaActual }) {
           <div className="stat-info">
             <span className="stat-label">Tratamientos Pendientes</span>
             <p className="stat-number">{metricas.tratamientosPendientes}</p>
-
           </div>
         </div>
 
@@ -71,12 +65,10 @@ export default function Dashboard({ setVistaActual }) {
           <div className="stat-info">
             <span className="stat-label">Controles Sanitarios al Día</span>
             <p className="stat-number">{metricas.controlesAlDia}</p>
-
           </div>
         </div>
       </div>
 
-      {/* Tabla Dinámica de Actividades Recientes */}
       <div className="dashboard-card">
         <div className="card-header">
           <h3>Registro de Actividades Recientes</h3>

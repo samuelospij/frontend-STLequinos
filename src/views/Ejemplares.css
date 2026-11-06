@@ -16,9 +16,9 @@
   font-size: 0.9rem;
 }
 
-/* Tarjetas de formulario y tablas */
 .form-card, .table-card {
-  background-color: #FFFFFF;
+  background-color: #FFFFFF !important;
+  color: #1F2937 !important;
   border-radius: 8px;
   border: 1px solid #E5E7EB;
   padding: 1.5rem;
@@ -52,17 +52,23 @@
 }
 
 .form-group input, .form-group select {
+  background-color: #FFFFFF !important;
+  color: #1F2937 !important;
   padding: 8px 12px;
-  border: 1px solid #D1D5DB;
+  border: 1px solid #D1D5DB !important;
   border-radius: 6px;
   font-size: 0.9rem;
-  color: #1F2937;
   outline: none;
   transition: border-color 0.2s;
 }
 
+.form-group input::placeholder {
+  color: #9CA3AF !important;
+}
+
 .form-group input:focus, .form-group select:focus {
-  border-color: #39A900;
+  border-color: #39A900 !important;
+  background-color: #FFFFFF !important;
 }
 
 .form-actions {
@@ -87,7 +93,6 @@
   background-color: #2e8800;
 }
 
-/* Tabla */
 .table-responsive {
   overflow-x: auto;
 }
@@ -100,8 +105,8 @@
 }
 
 .ejemplares-table th {
-  background-color: #F9FAFB;
-  color: #4B5563;
+  background-color: #F9FAFB !important;
+  color: #4B5563 !important;
   padding: 10px 14px;
   font-weight: 600;
   border-bottom: 1px solid #E5E7EB;
@@ -110,7 +115,7 @@
 .ejemplares-table td {
   padding: 12px 14px;
   border-bottom: 1px solid #F3F4F6;
-  color: #374151;
+  color: #374151 !important;
 }
 
 .col-nombre {

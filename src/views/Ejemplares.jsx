@@ -51,7 +51,6 @@ export default function Ejemplares() {
         </div>
       </div>
 
-      {/* Formulario de Registro */}
       <div className="form-card">
         <h3>Registrar Nuevo Ejemplar</h3>
         <form onSubmit={handleSubmit} className="ejemplares-form">
@@ -102,7 +101,6 @@ export default function Ejemplares() {
         </form>
       </div>
 
-      {/* Tabla de Listado de Equinos */}
       <div className="table-card">
         <h3>Inventario de Ejemplares Registrados</h3>
         <div className="table-responsive">

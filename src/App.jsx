@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import Dashboard from './views/Dashboard';
 import Ejemplares from './views/Ejemplares';
+import Sanidad from './views/Sanidad';
 import './App.css';
 
 export default function App() {
@@ -18,10 +19,23 @@ export default function App() {
         <main className="app-content">
           {vistaActual === 'dashboard' && <Dashboard setVistaActual={setVistaActual} />}
           {vistaActual === 'ejemplares' && <Ejemplares />}
-          {vistaActual === 'sanidad' && (
+          {vistaActual === 'sanidad' && <Sanidad />}
+          {vistaActual === 'reproduccion' && (
             <div>
-              <h2>Módulo de Salud</h2>
-              <p>Próximamente plan sanitario y vacunas.</p>
+              <h2>Módulo de Reproducción</h2>
+              <p>Próximamente control reproductivo y genealogía.</p>
+            </div>
+          )}
+          {vistaActual === 'nutricion' && (
+            <div>
+              <h2>Módulo de Nutrición</h2>
+              <p>Próximamente raciones y control de alimentación.</p>
+            </div>
+          )}
+          {vistaActual === 'admin' && (
+            <div>
+              <h2>Módulo de Administración y Reportes</h2>
+              <p>Próximamente generación de reportes generales.</p>
             </div>
           )}
         </main>

@@ -1,13 +1,8 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: #F8F9FA;
-  color: #1F2937;
+  background-color: #F4F6F8 !important;
+  color: #1F2937 !important;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
 .app-layout {
@@ -23,7 +18,7 @@ body {
 
 .app-content {
   flex: 1;
-  background-color: #F8F9FA;
   padding: 2rem;
+  background-color: #F4F6F8 !important;
   overflow-y: auto;
 }
