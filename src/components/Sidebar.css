@@ -1,58 +1,53 @@
-.sidebar {
-  width: 260px;
-  background-color: #FFFFFF;
-  border-right: 1px solid #E5E7EB;
-  display: flex;
-  flex-direction: column;
-  padding: 1.5rem 0;
-  height: calc(100vh - 65px);
-  position: sticky;
-  top: 65px;
+.sidebar-container {
+  width: 260px !important;
+  background-color: #FFFFFF !important; /* Fondo claro original */
+  color: #1F2937 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 1.5rem 1rem !important;
+  border-right: 1px solid #E5E7EB !important;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.02) !important;
+  flex-shrink: 0 !important;
+  min-height: calc(100vh - 60px) !important;
 }
 
-.sidebar-section-title {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #6B7280;
-  padding: 0 1.5rem 1rem 1.5rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+.sidebar-header h3 {
+  color: #00324D !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  margin-bottom: 1.5rem !important;
+  padding-left: 0.5rem !important;
+  text-align: center;
 }
 
 .sidebar-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.5rem !important;
 }
 
-.sidebar-link {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: transparent;
-  border: none;
-  width: 100%;
-  padding: 12px 1.5rem;
-  text-align: left;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #374151;
-  cursor: pointer;
-  transition: all 0.2s ease;
+.sidebar-btn {
+  background-color: transparent !important;
+  color: #4B5563 !important;
+  border: none !important;
+  text-align: left !important;
+  padding: 10px 14px !important;
+  border-radius: 6px !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
 }
 
-.sidebar-link:hover {
-  background-color: #F3F4F6;
-  color: #00324D;
+.sidebar-btn:hover {
+  background-color: #F3F4F6 !important;
+  color: #111827 !important;
 }
 
-.sidebar-link.activo {
-  background-color: #EEF2FF;
-  color: #00324D;
-  border-left: 4px solid #00324D;
-  font-weight: 600;
-}
-
-.sidebar-icon {
-  font-size: 1.2rem;
+.sidebar-btn.active {
+  background-color: #39A900 !important;
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
 }

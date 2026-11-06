@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import Dashboard from './views/Dashboard';
 import Ejemplares from './views/Ejemplares';
+import Sanidad from './views/Sanidad';
 import Reproduccion from './views/Reproduccion';
 import NutricionBitacora from './views/NutricionBitacora';
 import ReportesAdmin from './views/ReportesAdmin';
@@ -22,19 +23,15 @@ export default function App() {
         return <Dashboard setVistaActual={setVistaActual} />;
       case 'ejemplares':
         return <Ejemplares />;
+      case 'sanidad':
+        return <Sanidad />;
       case 'reproduccion':
         return <Reproduccion />;
       case 'nutricion':
         return <NutricionBitacora />;
       case 'reportes':
+      case 'admin':
         return <ReportesAdmin />;
-      case 'sanidad':
-        return (
-          <div className="p-6 bg-white rounded-xl shadow-sm border border-gray-200">
-            <h2 className="text-2xl font-bold text-[#00324D]">Módulo de Salud</h2>
-            <p className="text-gray-600 mt-2">Próximamente plan sanitario y vacunas (RFI02).</p>
-          </div>
-        );
       default:
         return <Dashboard setVistaActual={setVistaActual} />;
     }
