@@ -19,19 +19,19 @@ export default function ReportesAdmin() {
     };
 
     setHistorialBackups([nuevoBackup, ...historialBackups]);
-    alert(`¡Copia de seguridad generada y exportada con éxito en formato .${tipo} (Requisito RFCS02)!`);
+    alert(`¡Copia de seguridad generada y exportada con éxito en formato .${tipo}!`);
   };
 
   return (
     <div className="admin-container">
       <div className="admin-header">
-        <h2>Panel Administrativo, Control de Roles (RFRN01) y Respaldos (RFCS02)</h2>
-        <p>Gestión centralizada de seguridad de la información, permisos institucionales y extracción de copias de seguridad de la unidad equina[cite: 5, 6].</p>
+        <h2>Panel Administrativo, Control de Roles y Respaldos</h2>
+        <p>Gestión centralizada de seguridad de la información, permisos institucionales y extracción de copias de seguridad de la unidad equina.</p>
       </div>
 
       <div className="admin-card">
         <label>
-          Simulación de Control de Acceso Basado en Roles (RBAC) - RFRN01[cite: 6]
+          Simulación de Control de Acceso Basado en Roles (RBAC)
         </label>
         <select 
           className="admin-select"
@@ -42,7 +42,7 @@ export default function ReportesAdmin() {
           <option value="Instructor">Instructor (Gestión Zootécnica y Sanitaria)</option>
           <option value="Aprendiz">Aprendiz (Consulta y Registro Operativo)</option>
         </select>
-        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: '#6B7280', marginTop: '0.5rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', fontSize: '0.75rem', color: '#6B7280', marginTop: '0.75rem' }}>
           <span>Nivel de permisos actual: <strong style={{ color: '#39A900' }}>{rolActual}</strong></span>
           <span style={{ fontStyle: 'italic' }}>Modifique el selector para probar la restricción de vistas.</span>
         </div>
@@ -51,9 +51,9 @@ export default function ReportesAdmin() {
       {rolActual === 'Administrador' ? (
         <div>
           <div className="admin-backup-box">
-            <h3>Centro de Respaldos y Exportación de Base de Datos (RFCS02)[cite: 6]</h3>
+            <h3>Centro de Respaldos y Exportación de Base de Datos</h3>
             <p>
-              Herramienta exclusiva para administradores que permite extraer la información zootécnica, clínica e histórica del sistema en formatos obligatorios <span style={{ fontWeight: 600 }}>.SQL</span> y <span style={{ fontWeight: 600 }}>.CSV</span>[cite: 6].
+              Herramienta exclusiva para administradores que permite extraer la información zootécnica, clínica e histórica del sistema en formatos obligatorios <span style={{ fontWeight: 600 }}>.SQL</span> y <span style={{ fontWeight: 600 }}>.CSV</span>.
             </p>
             
             <div className="admin-grid-2">
@@ -86,7 +86,7 @@ export default function ReportesAdmin() {
           </div>
 
           <div className="admin-card">
-            <h3 style={{ fontSize: '1.125rem', fontWeight: 600, color: '#00324D', marginBottom: '1rem' }}>
+            <h3 style={{ fontSize: '1.125rem', fontWeight: 600, color: '#00324D', marginBottom: '1rem', textAlign: 'center' }}>
               Historial de Copias de Seguridad Recientes
             </h3>
             <div className="tabla-admin-wrapper">
@@ -121,10 +121,10 @@ export default function ReportesAdmin() {
         <div className="admin-restriction-box">
           <h4>
             <span>⚠️</span>
-            <span>Aviso de Restricción de Acceso (RFRN01)[cite: 6]</span>
+            <span>Aviso de Restricción de Acceso</span>
           </h4>
           <p>
-            Las opciones de respaldo, exportación masiva de bases de datos y administración general están restringidas exclusivamente al rol de <strong>Administrador</strong>[cite: 6]. Como <strong>{rolActual}</strong>, cuentas con permisos limitados a las funciones operativas y de consulta zootécnica correspondientes[cite: 6].
+            Las opciones de respaldo, exportación masiva de bases de datos y administración general están restringidas exclusivamente al rol de <strong>Administrador</strong>. Como <strong>{rolActual}</strong>, cuentas con permisos limitados a las funciones operativas y de consulta zootécnica correspondientes.
           </p>
         </div>
       )}
