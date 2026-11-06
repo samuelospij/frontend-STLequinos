@@ -1,55 +1,49 @@
 import React from 'react';
 import './Sidebar.css';
 
-export default function Sidebar({ vistaActual, setVistaActual }) {
+export default function Sidebar({ vistaActual, setVistaActual, rolUsuario, onLogout }) {
+  const menuItems = [
+    { id: 'dashboard', label: 'Dashboard' },
+    { id: 'ejemplares', label: 'Equinos' },
+    { id: 'sanidad', label: 'Salud' },
+    { id: 'reproduccion', label: 'Reproducción' },
+    { id: 'nutricion', label: 'Nutrición' },
+    { id: 'reportes', label: 'Admin / Reportes' }
+  ];
+
   return (
     <aside className="sidebar-container">
-      <div className="sidebar-header">
-        <h3>Módulos Zootécnicos</h3>
+      <div>
+        <div className="sidebar-header">
+          <h3 className="sidebar-title">Módulos Zootécnicos</h3>
+        </div>
+        
+        <nav className="sidebar-nav">
+          <ul className="sidebar-list">
+            {menuItems.map(item => (
+              <li key={item.id}>
+                <button
+                  className={`sidebar-btn ${vistaActual === item.id ? 'active' : ''}`}
+                  onClick={() => setVistaActual(item.id)}
+                >
+                  {item.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
-      <nav className="sidebar-nav">
-        <button 
-          className={`sidebar-btn ${vistaActual === 'dashboard' ? 'active' : ''}`} 
-          onClick={() => setVistaActual('dashboard')}
-        >
-          Dashboard
-        </button>
 
-        <button 
-          className={`sidebar-btn ${vistaActual === 'ejemplares' ? 'active' : ''}`} 
-          onClick={() => setVistaActual('ejemplares')}
-        >
-          Equinos
+      <div className="sidebar-footer">
+        <div className="user-role-badge">
+          Rol Activo: {rolUsuario || 'Invitado'}
+        </div>
+        
+        {/* El evento onClick llama a la función de App.jsx */}
+        <button className="btn-logout" onClick={onLogout}>
+          Salir de la sesión
         </button>
-
-        <button 
-          className={`sidebar-btn ${vistaActual === 'sanidad' ? 'active' : ''}`} 
-          onClick={() => setVistaActual('sanidad')}
-        >
-          Salud
-        </button>
-
-        <button 
-          className={`sidebar-btn ${vistaActual === 'reproduccion' ? 'active' : ''}`} 
-          onClick={() => setVistaActual('reproduccion')}
-        >
-          Reproducción
-        </button>
-
-        <button 
-          className={`sidebar-btn ${vistaActual === 'nutricion' ? 'active' : ''}`} 
-          onClick={() => setVistaActual('nutricion')}
-        >
-          Nutrición
-        </button>
-
-        <button 
-          className={`sidebar-btn ${vistaActual === 'admin' ? 'active' : ''}`} 
-          onClick={() => setVistaActual('admin')}
-        >
-          Admin / Reportes
-        </button>
-      </nav>
+      </div>
     </aside>
   );
 }
