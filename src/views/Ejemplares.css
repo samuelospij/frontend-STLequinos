@@ -1,0 +1,129 @@
+.ejemplares-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ejemplares-header h2 {
+  color: #00324D;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.ejemplares-subtitle {
+  color: #6B7280;
+  font-size: 0.9rem;
+}
+
+/* Tarjetas de formulario y tablas */
+.form-card, .table-card {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  border: 1px solid #E5E7EB;
+  padding: 1.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.form-card h3, .table-card h3 {
+  color: #00324D;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.ejemplares-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.form-group input, .form-group select {
+  padding: 8px 12px;
+  border: 1px solid #D1D5DB;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #1F2937;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus, .form-group select:focus {
+  border-color: #39A900;
+}
+
+.form-actions {
+  display: flex;
+  align-items: flex-end;
+}
+
+.btn-guardar {
+  background-color: #39A900;
+  color: #FFFFFF;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;
+}
+
+.btn-guardar:hover {
+  background-color: #2e8800;
+}
+
+/* Tabla */
+.table-responsive {
+  overflow-x: auto;
+}
+
+.ejemplares-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.ejemplares-table th {
+  background-color: #F9FAFB;
+  color: #4B5563;
+  padding: 10px 14px;
+  font-weight: 600;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.ejemplares-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #F3F4F6;
+  color: #374151;
+}
+
+.col-nombre {
+  font-weight: 600;
+  color: #00324D;
+}
+
+.badge-estado {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-estado.activo { background-color: #DEF7EC; color: #03543F; }
+.badge-estado.en-observación { background-color: #FEF3C7; color: #92400E; }
