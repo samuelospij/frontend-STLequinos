@@ -3,9 +3,9 @@ import './Sidebar.css';
 
 export default function Sidebar({ vistaActual, setVistaActual }) {
   const menuItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: '🎛️' },
-    { id: 'ejemplares', label: 'Equinos', icon: '🐴' },
-    { id: 'sanidad', label: 'Salud', icon: '➕' }
+    { id: 'dashboard', label: 'Dashboard' },
+    { id: 'ejemplares', label: 'Equinos' },
+    { id: 'sanidad', label: 'Salud'}
   ];
 
   return (

@@ -1,0 +1,192 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.dashboard-header h2 {
+  color: #00324D;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.dashboard-subtitle {
+  color: #6B7280;
+  font-size: 0.9rem;
+}
+
+.dashboard-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn-primario, .btn-secundario {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primario {
+  background-color: #39A900;
+  color: #FFFFFF;
+  border: none;
+}
+
+.btn-primario:hover {
+  background-color: #2e8800;
+}
+
+.btn-secundario {
+  background-color: #FFFFFF;
+  color: #00324D;
+  border: 1px solid #D1D5DB;
+}
+
+.btn-secundario:hover {
+  background-color: #F3F4F6;
+}
+
+/* Grilla de Métricas */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.stat-card {
+  background-color: #FFFFFF;
+  padding: 1.25rem;
+  border-radius: 8px;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stat-indicator {
+  width: 8px;
+  height: 48px;
+  border-radius: 4px;
+}
+
+.stat-indicator.verde { background-color: #39A900; }
+.stat-indicator.azul { background-color: #00324D; }
+.stat-indicator.amarillo { background-color: #F59E0B; }
+.stat-indicator.dorado { background-color: #D4AF37; }
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #6B7280;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.stat-number {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.2;
+}
+
+.stat-detail {
+  font-size: 0.75rem;
+  color: #9CA3AF;
+  margin-top: 2px;
+}
+
+/* Tarjeta Principal y Tabla */
+.dashboard-card {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  border: 1px solid #E5E7EB;
+  padding: 1.25rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.card-header h3 {
+  color: #00324D;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.badge-live {
+  background-color: #F3F4F6;
+  color: #4B5563;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.dashboard-table th {
+  background-color: #F9FAFB;
+  color: #4B5563;
+  padding: 10px 14px;
+  font-weight: 600;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.dashboard-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #F3F4F6;
+  color: #374151;
+}
+
+.col-hora {
+  color: #6B7280;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.col-equino {
+  font-weight: 600;
+  color: #00324D;
+}
+
+.badge-status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-status.completado { background-color: #DEF7EC; color: #03543F; }
+.badge-status.al-día { background-color: #E1EFFE; color: #1E40AF; }
+.badge-status.pendiente { background-color: #FEF3C7; color: #92400E; }
