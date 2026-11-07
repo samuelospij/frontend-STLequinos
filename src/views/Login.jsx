@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import senaLogo from '../assets/sena_logo.png'; 
 import './Login.css';
 
-export default function Login({ onLoginSuccess }) {
+export default function Login({ onLoginSuccess, onIrARecuperar }) {
   const [credenciales, setCredenciales] = useState({ correo: '', password: '' });
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -111,11 +111,18 @@ export default function Login({ onLoginSuccess }) {
                 <label className="login-checkbox-group">
                   <input type="checkbox" /> Recordar credenciales
                 </label>
-                <a href="#" className="login-forgot-link">¿Olvidaste tu contraseña?</a>
+                <button 
+                  type="button" 
+                  onClick={onIrARecuperar} 
+                  className="login-forgot-link" 
+                  style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+                >
+                  ¿Olvidaste tu contraseña?
+                </button>
               </div>
 
               <button type="submit" className="btn-login" disabled={isLoading}>
-                {isLoading ? 'Verificando...' : 'INICIAR SESIÓN →'}
+                {isLoading ? 'Verificando...' : 'INICIAR SESIÓN'}
               </button>
             </form>
 
