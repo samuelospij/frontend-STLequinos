@@ -8,6 +8,7 @@ export default function Sidebar({ vistaActual, setVistaActual, rolUsuario, onLog
     { id: 'sanidad', label: 'Plan Sanitario' },
     { id: 'reproduccion', label: 'Control Reproductivo' },
     { id: 'nutricion', label: 'Nutrición y Bitácora' },
+    { id: 'bitacora', label: 'Bitácora' },
     { id: 'reportes', label: 'Admin / Reportes' }
   ];
 
@@ -39,6 +40,7 @@ export default function Sidebar({ vistaActual, setVistaActual, rolUsuario, onLog
           Rol Activo: {rolUsuario || 'Invitado'}
         </div>
         
+        {/* Botón para cerrar sesión */}
         <button className="btn-logout" onClick={onLogout}>
           Salir de la sesión
         </button>

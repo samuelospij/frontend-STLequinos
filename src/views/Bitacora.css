@@ -1,0 +1,175 @@
+.bitacora-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bitacora-header h2 {
+  color: #00324D;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.bitacora-subtitle {
+  color: #6B7280;
+  font-size: 0.9rem;
+}
+
+.form-card, .table-card {
+  background-color: #FFFFFF !important;
+  color: #1F2937 !important;
+  border-radius: 8px;
+  border: 1px solid #E5E7EB;
+  padding: 1.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.form-card h3, .table-card h3 {
+  color: #00324D;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Formulario en 3 columnas limpias */
+.bitacora-form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  align-items: flex-end;
+  margin-top: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-group.full-width {
+  grid-column: span 2;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.form-group input, .form-group select {
+  background-color: #FFFFFF !important;
+  color: #1F2937 !important;
+  padding: 10px 12px;
+  border: 1px solid #D1D5DB !important;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.form-group input::placeholder {
+  color: #9CA3AF !important;
+}
+
+.form-group input:focus, .form-group select:focus {
+  border-color: #39A900 !important;
+  background-color: #FFFFFF !important;
+}
+
+.form-actions {
+  grid-column: span 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.btn-guardar {
+  background-color: #39A900;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;
+  height: 41px;
+}
+
+.btn-guardar:hover {
+  background-color: #2e8800;
+}
+
+/* Tabla de la bitácora */
+.table-responsive {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.bitacora-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+  table-layout: fixed;
+}
+
+.bitacora-table th, 
+.bitacora-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #F3F4F6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bitacora-table th {
+  background-color: #F9FAFB !important;
+  color: #4B5563 !important;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.bitacora-table td {
+  color: #374151 !important;
+  vertical-align: middle;
+}
+
+/* Anchos de columnas proporcionales */
+.bitacora-table th:nth-child(1), .bitacora-table td:nth-child(1) { width: 15%; } /* Fecha */
+.bitacora-table th:nth-child(2), .bitacora-table td:nth-child(2) { width: 22%; } /* Turno */
+.bitacora-table th:nth-child(3), .bitacora-table td:nth-child(3) { width: 20%; } /* Responsable */
+.bitacora-table th:nth-child(4), .bitacora-table td:nth-child(4) { width: 28%; } /* Novedad */
+.bitacora-table th:nth-child(5), .bitacora-table td:nth-child(5) { width: 15%; text-align: center; } /* Estado */
+
+.bitacora-table td:nth-child(5) {
+  overflow: visible;
+}
+
+.col-fecha {
+  color: #6B7280;
+  font-size: 0.85rem;
+}
+
+.col-responsable {
+  font-weight: 600;
+  color: #00324D;
+}
+
+.badge-estado {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.badge-estado.normal { background-color: #DEF7EC; color: #03543F; }
+.badge-estado.requiere-atención { background-color: #FEF3C7; color: #92400E; }
+.badge-estado.urgente { background-color: #FDE8E8; color: #9B1C1C; }

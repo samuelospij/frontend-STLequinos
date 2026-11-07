@@ -1,23 +1,19 @@
 import React, { useState } from 'react';
-import Login from './views/Login';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
+import Login from './views/Login'; // Asegúrate de tener tu vista de Login importada
 import Dashboard from './views/Dashboard';
 import Ejemplares from './views/Ejemplares';
 import Sanidad from './views/Sanidad';
 import Reproduccion from './views/Reproduccion';
 import NutricionBitacora from './views/NutricionBitacora';
 import ReportesAdmin from './views/ReportesAdmin';
-
-import './views/Reproduccion.css';
-import './views/NutricionBitacora.css';
-import './views/ReportesAdmin.css';
 import './App.css';
 
 export default function App() {
+  const [vistaActual, setVistaActual] = useState('dashboard');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [usuarioActivo, setUsuarioActivo] = useState(null);
-  const [vistaActual, setVistaActual] = useState('dashboard');
 
   const handleLoginSuccess = (usuario) => {
     setUsuarioActivo(usuario);
@@ -25,7 +21,6 @@ export default function App() {
     setVistaActual('dashboard');
   };
 
-  // Función que destruye la sesión y devuelve al Login
   const handleLogout = () => {
     setIsAuthenticated(false);
     setUsuarioActivo(null);
@@ -43,6 +38,7 @@ export default function App() {
       case 'reproduccion':
         return <Reproduccion />;
       case 'nutricion':
+      case 'bitacora':
         return <NutricionBitacora />;
       case 'reportes':
       case 'admin':
@@ -52,6 +48,7 @@ export default function App() {
     }
   };
 
+  // Si no está autenticado, muestra la pantalla de inicio de sesión
   if (!isAuthenticated) {
     return <Login onLoginSuccess={handleLoginSuccess} />;
   }
@@ -61,7 +58,6 @@ export default function App() {
       <Navbar usuarioActivo={usuarioActivo} setIsAuthenticated={setIsAuthenticated} />
 
       <div className="app-body flex flex-grow">
-        {/* Aquí pasamos la función onLogout al Sidebar */}
         <Sidebar 
           vistaActual={vistaActual} 
           setVistaActual={setVistaActual} 
