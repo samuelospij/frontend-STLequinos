@@ -57,9 +57,9 @@ export default function Login({ onLoginSuccess }) {
           </p>
           
           <div className="brand-footer">
-            <span>Versión 2.0 (2026)</span>
+            <span>Versión 1.0 (2026)</span>
             <span className="status-indicator">
-              <span className="status-dot"></span> Servidor Conectado
+
             </span>
           </div>
         </div>
