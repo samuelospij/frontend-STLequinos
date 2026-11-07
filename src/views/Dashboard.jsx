@@ -29,7 +29,7 @@ export default function Dashboard() {
 
       <div className="stats-grid">
         <div className="stat-card">
-          <div className="stat-indicator verde"></div>
+          <div className="stat-indicator verde-oscuro"></div>
           <div className="stat-info">
             <span className="stat-label">Total Ejemplares</span>
             <p className="stat-number">{metricas.totalEquinos}</p>
@@ -37,7 +37,7 @@ export default function Dashboard() {
         </div>
 
         <div className="stat-card">
-          <div className="stat-indicator azul"></div>
+          <div className="stat-indicator verde"></div>
           <div className="stat-info">
             <span className="stat-label">Ejemplares Activos</span>
             <p className="stat-number">{metricas.activos}</p>
@@ -45,7 +45,7 @@ export default function Dashboard() {
         </div>
 
         <div className="stat-card">
-          <div className="stat-indicator amarillo"></div>
+          <div className="stat-indicator naranja"></div>
           <div className="stat-info">
             <span className="stat-label">Tratamientos Pendientes</span>
             <p className="stat-number">{metricas.tratamientosPendientes}</p>
@@ -53,7 +53,7 @@ export default function Dashboard() {
         </div>
 
         <div className="stat-card">
-          <div className="stat-indicator dorado"></div>
+          <div className="stat-indicator gris"></div>
           <div className="stat-info">
             <span className="stat-label">Controles Sanitarios al Día</span>
             <p className="stat-number">{metricas.controlesAlDia}</p>

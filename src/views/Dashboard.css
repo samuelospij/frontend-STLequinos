@@ -13,14 +13,14 @@
 }
 
 .dashboard-header h2 {
-  color: #00324D;
+  color: var(--sena-verde-oscuro, #2C5E3E);
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.25rem;
 }
 
 .dashboard-subtitle {
-  color: #6B7280;
+  color: var(--texto-secundario, #6B7280);
   font-size: 0.9rem;
 }
 
@@ -39,23 +39,24 @@
 }
 
 .btn-primario {
-  background-color: #39A900;
+  background-color: var(--sena-verde, #39A900);
   color: #FFFFFF;
   border: none;
 }
 
 .btn-primario:hover {
-  background-color: #2e8800;
+  background-color: var(--sena-verde-oscuro, #2C5E3E);
 }
 
 .btn-secundario {
   background-color: #FFFFFF;
-  color: #00324D;
-  border: 1px solid #D1D5DB;
+  color: var(--sena-verde-oscuro, #2C5E3E);
+  border: 1px solid var(--borde, #E5E7EB);
 }
 
 .btn-secundario:hover {
-  background-color: #F3F4F6;
+  background-color: #F0FDF4;
+  border-color: #BBF7D0;
 }
 
 .stats-grid {
@@ -69,23 +70,30 @@
   color: #1F2937 !important;
   padding: 1.25rem;
   border-radius: 8px;
-  border: 1px solid #E5E7EB;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--borde, #E5E7EB);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
   display: flex;
   align-items: center;
   gap: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Indicadores con la paleta SENA */
 .stat-indicator {
   width: 8px;
   height: 48px;
   border-radius: 4px;
 }
 
-.stat-indicator.verde { background-color: #39A900; }
-.stat-indicator.azul { background-color: #00324D; }
-.stat-indicator.amarillo { background-color: #F59E0B; }
-.stat-indicator.dorado { background-color: #D4AF37; }
+.stat-indicator.verde { background-color: var(--sena-verde, #39A900); }
+.stat-indicator.verde-oscuro { background-color: var(--sena-verde-oscuro, #2C5E3E); }
+.stat-indicator.naranja { background-color: var(--sena-naranja, #FF6A13); }
+.stat-indicator.gris { background-color: #9CA3AF; }
 
 .stat-info {
   display: flex;
@@ -94,7 +102,7 @@
 
 .stat-label {
   font-size: 0.8rem;
-  color: #6B7280;
+  color: var(--texto-secundario, #6B7280);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.02em;
@@ -111,9 +119,9 @@
   background-color: #FFFFFF !important;
   color: #1F2937 !important;
   border-radius: 8px;
-  border: 1px solid #E5E7EB;
+  border: 1px solid var(--borde, #E5E7EB);
   padding: 1.25rem;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
 .card-header {
@@ -124,18 +132,19 @@
 }
 
 .card-header h3 {
-  color: #00324D;
+  color: var(--sena-verde-oscuro, #2C5E3E);
   font-size: 1.05rem;
   font-weight: 700;
 }
 
 .badge-live {
-  background-color: #F3F4F6;
-  color: #4B5563;
+  background-color: #F0FDF4;
+  color: var(--sena-verde-oscuro, #2C5E3E);
   font-size: 0.75rem;
   padding: 4px 10px;
   border-radius: 12px;
-  font-weight: 500;
+  font-weight: 600;
+  border: 1px solid #BBF7D0;
 }
 
 .table-responsive {
@@ -154,7 +163,7 @@
   color: #4B5563 !important;
   padding: 10px 14px;
   font-weight: 600;
-  border-bottom: 1px solid #E5E7EB;
+  border-bottom: 1px solid var(--borde, #E5E7EB);
 }
 
 .dashboard-table td {
@@ -164,16 +173,17 @@
 }
 
 .col-hora {
-  color: #6B7280;
+  color: var(--texto-secundario, #6B7280);
   font-size: 0.85rem;
   white-space: nowrap;
 }
 
 .col-equino {
   font-weight: 600;
-  color: #00324D;
+  color: var(--sena-verde-oscuro, #2C5E3E);
 }
 
+/* Badges de estados para la tabla */
 .badge-status {
   padding: 4px 10px;
   border-radius: 12px;
@@ -181,6 +191,6 @@
   font-weight: 600;
 }
 
-.badge-status.completado { background-color: #DEF7EC; color: #03543F; }
-.badge-status.al-día { background-color: #E1EFFE; color: #1E40AF; }
-.badge-status.pendiente { background-color: #FEF3C7; color: #92400E; }
+.badge-status.completado { background-color: #DCFCE7; color: #166534; }
+.badge-status.al-día { background-color: #F0FDF4; color: var(--sena-verde-oscuro, #2C5E3E); border: 1px solid #BBF7D0; }
+.badge-status.pendiente { background-color: var(--sena-naranja-claro, #FFF7ED); color: var(--sena-naranja, #FF6A13); border: 1px solid #FFEDD5; }

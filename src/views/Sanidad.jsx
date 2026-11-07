@@ -56,47 +56,20 @@ export default function Sanidad() {
         <form onSubmit={handleSubmit} className="sanidad-form">
           <div className="form-group">
             <label>Nombre del Equino</label>
-            <input 
-              type="text" 
-              name="equino" 
-              placeholder="Ej. Relámpago" 
-              value={nuevoTratamiento.equino} 
-              onChange={handleChange} 
-            />
+            <input type="text" name="equino" placeholder="Ej. Relámpago" value={nuevoTratamiento.equino} onChange={handleChange} />
           </div>
-
           <div className="form-group">
             <label>Tipo de Procedimiento</label>
-            <input 
-              type="text" 
-              name="tipo" 
-              placeholder="Ej. Vacunación Antirrábica" 
-              value={nuevoTratamiento.tipo} 
-              onChange={handleChange} 
-            />
+            <input type="text" name="tipo" placeholder="Ej. Vacunación Antirrábica" value={nuevoTratamiento.tipo} onChange={handleChange} />
           </div>
-
           <div className="form-group">
             <label>Fecha Programada / Aplicada</label>
-            <input 
-              type="date" 
-              name="fecha" 
-              value={nuevoTratamiento.fecha} 
-              onChange={handleChange} 
-            />
+            <input type="date" name="fecha" value={nuevoTratamiento.fecha} onChange={handleChange} />
           </div>
-
           <div className="form-group">
             <label>Responsable / Veterinario</label>
-            <input 
-              type="text" 
-              name="veterinario" 
-              placeholder="Ej. Dr. Carlos Pérez" 
-              value={nuevoTratamiento.veterinario} 
-              onChange={handleChange} 
-            />
+            <input type="text" name="veterinario" placeholder="Ej. Dr. Carlos Pérez" value={nuevoTratamiento.veterinario} onChange={handleChange} />
           </div>
-
           <div className="form-group">
             <label>Estado</label>
             <select name="estado" value={nuevoTratamiento.estado} onChange={handleChange}>
@@ -105,7 +78,6 @@ export default function Sanidad() {
               <option value="Completado">Completado</option>
             </select>
           </div>
-
           <div className="form-actions">
             <button type="submit" className="btn-guardar">Registrar Control</button>
           </div>

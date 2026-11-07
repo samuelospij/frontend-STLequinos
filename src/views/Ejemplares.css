@@ -5,7 +5,7 @@
 }
 
 .ejemplares-header h2 {
-  color: #00324D;
+  color: #2C5E3E; /* Verde Oscuro SENA */
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.25rem;
@@ -22,11 +22,11 @@
   border-radius: 8px;
   border: 1px solid #E5E7EB;
   padding: 1.5rem;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
 .form-card h3, .table-card h3 {
-  color: #00324D;
+  color: #2C5E3E; /* Verde Oscuro SENA */
   font-size: 1.05rem;
   font-weight: 700;
   margin-bottom: 1rem;
@@ -63,7 +63,7 @@
   outline: none;
   width: 100%;
   box-sizing: border-box;
-  transition: border-color 0.2s;
+  transition: all 0.2s;
 }
 
 .form-group input::placeholder {
@@ -72,7 +72,7 @@
 
 .form-group input:focus, .form-group select:focus {
   border-color: #39A900 !important;
-  background-color: #FFFFFF !important;
+  box-shadow: 0 0 0 3px rgba(57, 169, 0, 0.1);
 }
 
 .form-actions {
@@ -83,7 +83,7 @@
 }
 
 .btn-guardar {
-  background-color: #39A900;
+  background-color: #39A900; /* Verde SENA */
   color: #FFFFFF;
   border: none;
   padding: 10px 24px;
@@ -95,7 +95,7 @@
 }
 
 .btn-guardar:hover {
-  background-color: #2e8800;
+  background-color: #2C5E3E; /* Hover a Verde Oscuro */
 }
 
 
@@ -141,7 +141,7 @@
 
 .col-nombre {
   font-weight: 600;
-  color: #00324D;
+  color: #2C5E3E; /* Verde Oscuro */
 }
 
 .badge-estado {
@@ -153,5 +153,12 @@
   text-align: center;
 }
 
-.badge-estado.activo { background-color: #DEF7EC; color: #03543F; }
-.badge-estado.en-observación { background-color: #FEF3C7; color: #92400E; }
+.badge-estado.activo { 
+  background-color: #DCFCE7; 
+  color: #166534; 
+}
+.badge-estado.en-observación { 
+  background-color: #FFF7ED; 
+  color: #FF6A13; /* Acento Naranja SENA */
+  border: 1px solid #FFEDD5;
+}

@@ -1,4 +1,37 @@
-/* --- Deja tu formulario de arriba intacto como lo tienes --- */
+.sanidad-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sanidad-header h2 {
+  color: #2C5E3E; /* Verde Oscuro SENA */
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.sanidad-subtitle {
+  color: #6B7280;
+  font-size: 0.9rem;
+}
+
+.form-card, .table-card {
+  background-color: #FFFFFF !important;
+  color: #1F2937 !important;
+  border-radius: 8px;
+  border: 1px solid #E5E7EB;
+  padding: 1.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.form-card h3, .table-card h3 {
+  color: #2C5E3E; /* Verde Oscuro SENA */
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
 .sanidad-form {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -29,7 +62,7 @@
   outline: none;
   width: 100%;
   box-sizing: border-box;
-  transition: border-color 0.2s;
+  transition: all 0.2s;
 }
 
 .form-group input::placeholder {
@@ -38,7 +71,7 @@
 
 .form-group input:focus, .form-group select:focus {
   border-color: #39A900 !important;
-  background-color: #FFFFFF !important;
+  box-shadow: 0 0 0 3px rgba(57, 169, 0, 0.1);
 }
 
 .form-actions {
@@ -49,7 +82,7 @@
 }
 
 .btn-guardar {
-  background-color: #39A900;
+  background-color: #39A900; /* Verde SENA */
   color: #FFFFFF;
   border: none;
   padding: 10px 24px;
@@ -63,7 +96,7 @@
 }
 
 .btn-guardar:hover {
-  background-color: #2e8800;
+  background-color: #2C5E3E;
 }
 
 
@@ -105,7 +138,7 @@
 /* Distribución exacta de anchos para las 5 columnas de la tabla de salud */
 .sanidad-table th:nth-child(1), .sanidad-table td:nth-child(1) { width: 18%; } /* Ejemplar */
 .sanidad-table th:nth-child(2), .sanidad-table td:nth-child(2) { width: 28%; } /* Procedimiento / Tratamiento */
-.sanidad-table th:nth-child(3), .sanidad-table td:nth-child(3) { width: 16%; } /* Fecha (ancho suficiente para no partirse) */
+.sanidad-table th:nth-child(3), .sanidad-table td:nth-child(3) { width: 16%; } /* Fecha */
 .sanidad-table th:nth-child(4), .sanidad-table td:nth-child(4) { width: 20%; } /* Veterinario Responsable */
 .sanidad-table th:nth-child(5), .sanidad-table td:nth-child(5) { width: 18%; text-align: center; } /* Estado */
 
@@ -115,7 +148,7 @@
 
 .col-equino {
   font-weight: 600;
-  color: #00324D;
+  color: #2C5E3E;
 }
 
 .col-fecha {
@@ -133,6 +166,7 @@
   white-space: nowrap;
 }
 
-.badge-estado.completado { background-color: #DEF7EC; color: #03543F; }
-.badge-estado.programado { background-color: #E1EFFE; color: #1E40AF; }
-.badge-estado.pendiente { background-color: #FEF3C7; color: #92400E; }
+/* Ajuste de insignias de estado a los colores institucionales */
+.badge-estado.completado { background-color: #DCFCE7; color: #166534; }
+.badge-estado.programado { background-color: #F0FDF4; color: #2C5E3E; border: 1px solid #BBF7D0; }
+.badge-estado.pendiente { background-color: #FFF7ED; color: #FF6A13; border: 1px solid #FFEDD5; }

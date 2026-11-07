@@ -3,12 +3,12 @@ import './Sidebar.css';
 
 export default function Sidebar({ vistaActual, setVistaActual, rolUsuario, onLogout }) {
   const menuItems = [
-    { id: 'dashboard', label: 'Dashboard' },
-    { id: 'ejemplares', label: 'Equinos' },
-    { id: 'sanidad', label: 'Salud' },
-    { id: 'reproduccion', label: 'Reproducción' },
-    { id: 'nutricion', label: 'Nutrición' },
-    { id: 'bitacora', label: 'Bitácora' }, // Integrado tu módulo de bitácora aquí
+    { id: 'dashboard', label: 'Dashboard Principal' },
+    { id: 'ejemplares', label: 'Gestión de Equinos' },
+    { id: 'sanidad', label: 'Plan Sanitario' },
+    { id: 'reproduccion', label: 'Control Reproductivo' },
+    { id: 'nutricion', label: 'Nutrición y Bitácora' },
+    { id: 'bitacora', label: 'Bitácora' },
     { id: 'reportes', label: 'Admin / Reportes' }
   ];
 

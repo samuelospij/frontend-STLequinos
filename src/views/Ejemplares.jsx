@@ -56,37 +56,16 @@ export default function Ejemplares() {
         <form onSubmit={handleSubmit} className="ejemplares-form">
           <div className="form-group">
             <label>Nombre del Equino</label>
-            <input 
-              type="text" 
-              name="nombre" 
-              placeholder="Ej. Centauro" 
-              value={nuevoEquino.nombre} 
-              onChange={handleChange} 
-            />
+            <input type="text" name="nombre" placeholder="Ej. Centauro" value={nuevoEquino.nombre} onChange={handleChange} />
           </div>
-
           <div className="form-group">
             <label>Raza o Tipo</label>
-            <input 
-              type="text" 
-              name="raza" 
-              placeholder="Ej. Paso Fino Colombiano" 
-              value={nuevoEquino.raza} 
-              onChange={handleChange} 
-            />
+            <input type="text" name="raza" placeholder="Ej. Paso Fino Colombiano" value={nuevoEquino.raza} onChange={handleChange} />
           </div>
-
           <div className="form-group">
             <label>Edad</label>
-            <input 
-              type="text" 
-              name="edad" 
-              placeholder="Ej. 5 años" 
-              value={nuevoEquino.edad} 
-              onChange={handleChange} 
-            />
+            <input type="text" name="edad" placeholder="Ej. 5 años" value={nuevoEquino.edad} onChange={handleChange} />
           </div>
-
           <div className="form-group">
             <label>Género</label>
             <select name="genero" value={nuevoEquino.genero} onChange={handleChange}>
@@ -94,7 +73,6 @@ export default function Ejemplares() {
               <option value="Hembra">Hembra</option>
             </select>
           </div>
-
           <div className="form-actions">
             <button type="submit" className="btn-guardar">Guardar Ejemplar</button>
           </div>
