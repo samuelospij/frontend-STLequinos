@@ -23,19 +23,61 @@
 @media (min-width: 768px) {
   .login-card {
     flex-direction: row;
-    min-height: 500px;
+    min-height: 520px;
   }
 }
 
-/* Panel Institucional - Eliminado el azul, ahora es Verde Oscuro SENA */
+/* Panel Institucional - AHORA CENTRADO */
 .login-brand-section {
-  background-color: #2C5E3E; 
+  background-color: #2C5E3E;
   padding: 2.5rem 2rem;
   color: #FFFFFF;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-right: 4px solid #39A900; /* Línea divisoria Verde SENA */
+  align-items: center; /* Centra los elementos horizontalmente */
+  text-align: center; /* Centra el texto */
+  border-right: 4px solid #39A900;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Capa 1: Fotografía del caballo mucho más visible */
+.login-brand-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/caballo3.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  mix-blend-mode: overlay; 
+  opacity: 0.85; /* Se aumentó al 85% para que destaque mucho más */
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Capa 2: Filtro gradiente más suave para dejar pasar la foto */
+.login-brand-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Bajamos la opacidad del color oscuro para revelar el caballo */
+  background: linear-gradient(to bottom, rgba(44, 94, 62, 0.2), rgba(44, 94, 62, 0.8));
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Asegurar que todos los textos floten por encima de las capas */
+.login-brand-section > * {
+  position: relative;
+  z-index: 3;
 }
 
 @media (min-width: 768px) {
@@ -45,45 +87,36 @@
   }
 }
 
-.brand-badge {
-  display: inline-block;
-  background-color: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 0.375rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  margin-bottom: 2rem;
-  align-self: flex-start;
-}
-
 .brand-title {
-  font-size: 2rem;
+  font-size: 2.3rem;
   font-weight: 800;
   margin-bottom: 0.5rem;
   letter-spacing: -0.025em;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.5); /* Sombra un poco más fuerte para contraste */
 }
 
 .brand-subtitle {
   font-size: 1rem;
-  font-weight: 600;
-  color: #FFF7ED; /* Blanco cálido para resaltar */
+  font-weight: 400;
+  color: #E5E7EB;
   margin-bottom: 1.5rem;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
 .brand-description {
   font-size: 0.875rem;
-  color: #D1D5DB;
-  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
   margin-bottom: auto;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  max-width: 90%; /* Evita que el texto toque mucho los bordes al estar centrado */
 }
 
 .brand-footer {
+  width: 100%; /* Necesario al estar todo centrado para que los textos se separen */
   margin-top: 3rem;
   font-size: 0.75rem;
-  color: #9CA3AF;
+  color: rgba(255, 255, 255, 0.85);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -97,18 +130,20 @@
 }
 
 .status-dot {
-  width: 8px;
-  height: 8px;
-  background-color: #39A900; /* Punto Verde SENA */
+  width: 6px;
+  height: 6px;
+  background-color: #39A900;
   border-radius: 50%;
-  box-shadow: 0 0 8px rgba(57, 169, 0, 0.6);
+  box-shadow: 0 0 8px rgba(57, 169, 0, 0.9);
 }
 
+/* Panel Derecho de Formulario (Sin cambios) */
 .login-form-section {
   padding: 2.5rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   background-color: #FFFFFF;
 }
 
@@ -119,20 +154,36 @@
   }
 }
 
+.login-form-content {
+  width: 100%;
+  max-width: 380px; 
+}
+
 .login-form-header {
   margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.login-logo-top {
+  width: 65px; /* Logo ligeramente más grande para darle presencia */
+  height: auto;
+  margin-bottom: 1rem;
 }
 
 .login-form-header h2 {
   font-size: 1.75rem;
   font-weight: 700;
-  color: #2C5E3E; /* Título en Verde Oscuro */
+  color: #1F2937;
   margin-bottom: 0.5rem;
 }
 
 .login-form-header p {
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   color: #6B7280;
+  line-height: 1.4;
 }
 
 .login-error-msg {
@@ -174,7 +225,7 @@
 
 .login-input:focus {
   outline: none;
-  border-color: #39A900; /* Foco en Verde SENA */
+  border-color: #39A900;
   background-color: #FFFFFF;
   box-shadow: 0 0 0 3px rgba(57, 169, 0, 0.1);
 }
@@ -184,18 +235,18 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
 }
 
 .login-checkbox-group {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #4B5563;
+  color: #6B7280;
 }
 
 .login-forgot-link {
-  color: #FF6A13; /* Enlace en Naranja SENA */
+  color: #FF6A13;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.2s;
@@ -207,7 +258,7 @@
 
 .btn-login {
   width: 100%;
-  background-color: #39A900; /* Botón Principal Verde SENA */
+  background-color: #39A900;
   color: #FFFFFF;
   font-weight: 600;
   padding: 0.875rem;
@@ -219,12 +270,12 @@
 }
 
 .btn-login:hover {
-  background-color: #2C5E3E; /* Hover a Verde Oscuro */
+  background-color: #2C5E3E;
 }
 
 .login-help-text {
   text-align: center;
   margin-top: 2rem;
   font-size: 0.8rem;
-  color: #6B7280;
+  color: #9CA3AF;
 }

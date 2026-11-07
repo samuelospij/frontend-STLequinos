@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import senaLogo from '../assets/sena_logo.png'; /* Corrección de extensión a .png */
+import senaLogo from '../assets/sena_logo.png'; 
 import './Login.css';
 
 export default function Login({ onLoginSuccess }) {
@@ -46,20 +46,14 @@ export default function Login({ onLoginSuccess }) {
     <div className="login-page-container">
       <div className="login-card">
         
-        {/* Panel Izquierdo Institucional */}
+        {/* Panel Izquierdo Institucional (Centrado y con foto destacada) */}
         <div className="login-brand-section">
-          <div style={{ marginBottom: '2rem' }}>
-            <img 
-              src={senaLogo} 
-              alt="Logo SENA" 
-              style={{ width: '65px', height: 'auto', objectFit: 'contain', filter: 'drop-shadow(0px 2px 4px rgba(0,0,0,0.1))' }} 
-            />
-          </div>
-          <span className="brand-badge">SENA - Regional Antioquia</span>
+          
           <h1 className="brand-title">STL EQUINOS</h1>
-          <h3 className="brand-subtitle">Sistema de Gestión Zootécnica</h3>
+          <h3 className="brand-subtitle">Sistema de Gestión Equina</h3>
+          
           <p className="brand-description">
-            Plataforma integral de trazabilidad biométrica, sanitaria y reproductiva para la unidad de equinos del Centro de los Recursos Naturales Renovables La Salada.
+            Plataforma integral de trazabilidad biométrica, sanitaria y reproductiva para unidad equina.
           </p>
           
           <div className="brand-footer">
@@ -72,55 +66,64 @@ export default function Login({ onLoginSuccess }) {
 
         {/* Panel Derecho de Formulario */}
         <div className="login-form-section">
-          <div className="login-form-header">
-            <h2>Iniciar Sesión</h2>
-            <p>Ingresa con tu correo institucional (@sena.edu.co o @misena.edu.co).</p>
+          <div className="login-form-content">
+            
+            <div className="login-form-header">
+              <img 
+                src={senaLogo} 
+                alt="Logo SENA" 
+                className="login-logo-top"
+              />
+              <h2>Iniciar Sesión</h2>
+              <p>Ingresa con tu correo institucional (@sena.edu.co o @misena.edu.co).</p>
+            </div>
+
+            {error && <div className="login-error-msg">{error}</div>}
+
+            <form onSubmit={handleSubmit}>
+              <div className="login-form-group">
+                <label>Correo Electrónico Institucional</label>
+                <input
+                  type="email"
+                  name="correo"
+                  value={credenciales.correo}
+                  onChange={handleChange}
+                  className="login-input"
+                  placeholder="nombre.apellido@sena.edu.co"
+                  autoComplete="email"
+                />
+              </div>
+
+              <div className="login-form-group">
+                <label>Contraseña</label>
+                <input
+                  type="password"
+                  name="password"
+                  value={credenciales.password}
+                  onChange={handleChange}
+                  className="login-input"
+                  placeholder="••••••••••••"
+                  autoComplete="current-password"
+                />
+              </div>
+
+              <div className="login-options">
+                <label className="login-checkbox-group">
+                  <input type="checkbox" /> Recordar credenciales
+                </label>
+                <a href="#" className="login-forgot-link">¿Olvidaste tu contraseña?</a>
+              </div>
+
+              <button type="submit" className="btn-login" disabled={isLoading}>
+                {isLoading ? 'Verificando...' : 'INICIAR SESIÓN →'}
+              </button>
+            </form>
+
+            <p className="login-help-text">
+              ¿Necesitas ayuda para ingresar? Contacta a la Mesa de Ayuda Técnica de La Salada.
+            </p>
+
           </div>
-
-          {error && <div className="login-error-msg">{error}</div>}
-
-          <form onSubmit={handleSubmit}>
-            <div className="login-form-group">
-              <label>Correo Electrónico Institucional</label>
-              <input
-                type="email"
-                name="correo"
-                value={credenciales.correo}
-                onChange={handleChange}
-                className="login-input"
-                placeholder="nombre.apellido@sena.edu.co"
-                autoComplete="email"
-              />
-            </div>
-
-            <div className="login-form-group">
-              <label>Contraseña</label>
-              <input
-                type="password"
-                name="password"
-                value={credenciales.password}
-                onChange={handleChange}
-                className="login-input"
-                placeholder="••••••••••••"
-                autoComplete="current-password"
-              />
-            </div>
-
-            <div className="login-options">
-              <label className="login-checkbox-group">
-                <input type="checkbox" /> Recordar credenciales
-              </label>
-              <a href="#" className="login-forgot-link">¿Olvidaste tu contraseña?</a>
-            </div>
-
-            <button type="submit" className="btn-login" disabled={isLoading}>
-              {isLoading ? 'Verificando...' : 'INICIAR SESIÓN →'}
-            </button>
-          </form>
-
-          <p className="login-help-text">
-            ¿Necesitas ayuda para ingresar? Contacta a la Mesa de Ayuda Técnica de La Salada.
-          </p>
         </div>
       </div>
     </div>
