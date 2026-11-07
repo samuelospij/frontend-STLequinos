@@ -3,11 +3,11 @@ import './Sidebar.css';
 
 export default function Sidebar({ vistaActual, setVistaActual, rolUsuario, onLogout }) {
   const menuItems = [
-    { id: 'dashboard', label: 'Dashboard' },
-    { id: 'ejemplares', label: 'Equinos' },
-    { id: 'sanidad', label: 'Salud' },
-    { id: 'reproduccion', label: 'Reproducción' },
-    { id: 'nutricion', label: 'Nutrición' },
+    { id: 'dashboard', label: 'Dashboard Principal' },
+    { id: 'ejemplares', label: 'Gestión de Equinos' },
+    { id: 'sanidad', label: 'Plan Sanitario' },
+    { id: 'reproduccion', label: 'Control Reproductivo' },
+    { id: 'nutricion', label: 'Nutrición y Bitácora' },
     { id: 'reportes', label: 'Admin / Reportes' }
   ];
 
@@ -39,7 +39,6 @@ export default function Sidebar({ vistaActual, setVistaActual, rolUsuario, onLog
           Rol Activo: {rolUsuario || 'Invitado'}
         </div>
         
-        {/* El evento onClick llama a la función de App.jsx */}
         <button className="btn-logout" onClick={onLogout}>
           Salir de la sesión
         </button>
