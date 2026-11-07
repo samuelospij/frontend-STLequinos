@@ -1,66 +1,45 @@
 import React, { useState } from 'react';
-import Login from './views/Login';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import Dashboard from './views/Dashboard';
 import Ejemplares from './views/Ejemplares';
 import Sanidad from './views/Sanidad';
-import Reproduccion from './views/Reproduccion';
-import NutricionBitacora from './views/NutricionBitacora';
-import ReportesAdmin from './views/ReportesAdmin';
-
-// Importación de estilos
-import './views/Reproduccion.css';
-import './views/NutricionBitacora.css';
-import './views/ReportesAdmin.css';
+import Bitacora from './views/Bitacora';
 import './App.css';
 
 export default function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [usuarioActivo, setUsuarioActivo] = useState(null);
   const [vistaActual, setVistaActual] = useState('dashboard');
 
-  const handleLoginSuccess = (usuario) => {
-    setUsuarioActivo(usuario);
-    setIsAuthenticated(true);
-    setVistaActual('dashboard');
-  };
-
-  const renderizarVista = () => {
-    switch (vistaActual) {
-      case 'dashboard':
-        return <Dashboard setVistaActual={setVistaActual} />;
-      case 'ejemplares':
-        return <Ejemplares />;
-      case 'sanidad':
-        return <Sanidad />;
-      case 'reproduccion':
-        return <Reproduccion />;
-      case 'nutricion':
-        return <NutricionBitacora />;
-      case 'reportes':
-      case 'admin':
-        return <ReportesAdmin usuarioActivo={usuarioActivo} />;
-      default:
-        return <Dashboard setVistaActual={setVistaActual} />;
-    }
-  };
-
-  // Si no está autenticado, muestra solo la pantalla de Login a pantalla completa
-  if (!isAuthenticated) {
-    return <Login onLoginSuccess={handleLoginSuccess} />;
-  }
-
-  // Si está autenticado, renderiza la estructura principal de la aplicación
   return (
-    <div className="app-layout min-h-screen bg-[#F8F9FA] flex flex-col">
-      <Navbar usuarioActivo={usuarioActivo} setIsAuthenticated={setIsAuthenticated} />
+    <div className="app-layout">
+      <Navbar />
 
-      <div className="app-body flex flex-grow">
-        <Sidebar vistaActual={vistaActual} setVistaActual={setVistaActual} rolUsuario={usuarioActivo.rol} />
+      <div className="app-body">
+        <Sidebar vistaActual={vistaActual} setVistaActual={setVistaActual} />
 
-        <main className="app-content flex-grow p-6">
-          {renderizarVista()}
+        <main className="app-content">
+          {vistaActual === 'dashboard' && <Dashboard setVistaActual={setVistaActual} />}
+          {vistaActual === 'ejemplares' && <Ejemplares />}
+          {vistaActual === 'sanidad' && <Sanidad />}
+          {vistaActual === 'bitacora' && <Bitacora />}
+          {vistaActual === 'reproduccion' && (
+            <div>
+              <h2>Módulo de Reproducción</h2>
+              <p>Próximamente control reproductivo y genealogía.</p>
+            </div>
+          )}
+          {vistaActual === 'nutricion' && (
+            <div>
+              <h2>Módulo de Nutrición</h2>
+              <p>Próximamente raciones y control de alimentación.</p>
+            </div>
+          )}
+          {vistaActual === 'admin' && (
+            <div>
+              <h2>Módulo de Administración y Reportes</h2>
+              <p>Próximamente generación de reportes generales.</p>
+            </div>
+          )}
         </main>
       </div>
     </div>

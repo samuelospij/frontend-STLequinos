@@ -30,6 +30,13 @@ export default function Sidebar({ vistaActual, setVistaActual }) {
         </button>
 
         <button 
+          className={`sidebar-btn ${vistaActual === 'bitacora' ? 'active' : ''}`} 
+          onClick={() => setVistaActual('bitacora')}
+        >
+          Bitácora
+        </button>
+
+        <button 
           className={`sidebar-btn ${vistaActual === 'reproduccion' ? 'active' : ''}`} 
           onClick={() => setVistaActual('reproduccion')}
         >

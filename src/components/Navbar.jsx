@@ -10,7 +10,6 @@ export default function Navbar() {
         <span className="project-title">STL Equinos - Sede La Salada</span>
       </div>
       <div className="navbar-user">
-        <span className="role-badge">Persona 1</span>
       </div>
     </header>
   );
