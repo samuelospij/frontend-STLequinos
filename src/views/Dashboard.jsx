@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Dashboard.css';
 
-export default function Dashboard({ setVistaActual }) {
+export default function Dashboard() {
   const [metricas] = useState({
     totalEquinos: 24,
     activos: 21,
@@ -24,14 +24,6 @@ export default function Dashboard({ setVistaActual }) {
           <p className="dashboard-subtitle">
             Resumen del estado zootécnico y operativo de la caballada SENA Sede La Salada.
           </p>
-        </div>
-        <div className="dashboard-actions">
-          <button className="btn-secundario" onClick={() => setVistaActual('sanidad')}>
-            Ir a Salud
-          </button>
-          <button className="btn-primario" onClick={() => setVistaActual('ejemplares')}>
-            Ir a Equinos
-          </button>
         </div>
       </div>
 

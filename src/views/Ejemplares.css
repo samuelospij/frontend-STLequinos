@@ -32,11 +32,13 @@
   margin-bottom: 1rem;
 }
 
+/* --- FORMULARIO ORGANIZADO EN 2 COLUMNAS EQUILIBRADAS --- */
 .ejemplares-form {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
   align-items: flex-end;
+  margin-top: 1rem;
 }
 
 .form-group {
@@ -54,11 +56,13 @@
 .form-group input, .form-group select {
   background-color: #FFFFFF !important;
   color: #1F2937 !important;
-  padding: 8px 12px;
+  padding: 10px 12px;
   border: 1px solid #D1D5DB !important;
   border-radius: 6px;
   font-size: 0.9rem;
   outline: none;
+  width: 100%;
+  box-sizing: border-box;
   transition: border-color 0.2s;
 }
 
@@ -72,29 +76,33 @@
 }
 
 .form-actions {
+  grid-column: span 2; /* Hace que el botón ocupe toda la fila inferior y se alinee a la derecha */
   display: flex;
-  align-items: flex-end;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
 }
 
 .btn-guardar {
   background-color: #39A900;
   color: #FFFFFF;
   border: none;
-  padding: 9px 16px;
+  padding: 10px 24px;
   border-radius: 6px;
   font-weight: 600;
   font-size: 0.9rem;
   cursor: pointer;
   transition: background-color 0.2s;
-  width: 100%;
 }
 
 .btn-guardar:hover {
   background-color: #2e8800;
 }
 
+
+/* --- INVENTARIO / TABLA (INTACTO) --- */
 .table-responsive {
   overflow-x: auto;
+  margin-top: 1rem;
 }
 
 .ejemplares-table {
@@ -102,21 +110,34 @@
   border-collapse: collapse;
   text-align: left;
   font-size: 0.9rem;
+  table-layout: fixed;
+}
+
+.ejemplares-table th, 
+.ejemplares-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #F3F4F6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .ejemplares-table th {
   background-color: #F9FAFB !important;
   color: #4B5563 !important;
-  padding: 10px 14px;
   font-weight: 600;
-  border-bottom: 1px solid #E5E7EB;
 }
 
 .ejemplares-table td {
-  padding: 12px 14px;
-  border-bottom: 1px solid #F3F4F6;
   color: #374151 !important;
 }
+
+/* Anchos fijos de la tabla que ya te funcionaban perfectamente */
+.ejemplares-table th:nth-child(1), .ejemplares-table td:nth-child(1) { width: 22%; }
+.ejemplares-table th:nth-child(2), .ejemplares-table td:nth-child(2) { width: 25%; }
+.ejemplares-table th:nth-child(3), .ejemplares-table td:nth-child(3) { width: 15%; }
+.ejemplares-table th:nth-child(4), .ejemplares-table td:nth-child(4) { width: 18%; }
+.ejemplares-table th:nth-child(5), .ejemplares-table td:nth-child(5) { width: 20%; }
 
 .col-nombre {
   font-weight: 600;
@@ -124,10 +145,12 @@
 }
 
 .badge-estado {
+  display: inline-block;
   padding: 4px 10px;
   border-radius: 12px;
   font-size: 0.75rem;
   font-weight: 600;
+  text-align: center;
 }
 
 .badge-estado.activo { background-color: #DEF7EC; color: #03543F; }

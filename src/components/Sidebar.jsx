@@ -8,6 +8,7 @@ export default function Sidebar({ vistaActual, setVistaActual, rolUsuario, onLog
     { id: 'sanidad', label: 'Salud' },
     { id: 'reproduccion', label: 'Reproducción' },
     { id: 'nutricion', label: 'Nutrición' },
+    { id: 'bitacora', label: 'Bitácora' }, // Integrado tu módulo de bitácora aquí
     { id: 'reportes', label: 'Admin / Reportes' }
   ];
 
@@ -39,7 +40,7 @@ export default function Sidebar({ vistaActual, setVistaActual, rolUsuario, onLog
           Rol Activo: {rolUsuario || 'Invitado'}
         </div>
         
-        {/* El evento onClick llama a la función de App.jsx */}
+        {/* Botón para cerrar sesión */}
         <button className="btn-logout" onClick={onLogout}>
           Salir de la sesión
         </button>

@@ -1,42 +1,10 @@
-.sanidad-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.sanidad-header h2 {
-  color: #00324D;
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 0.25rem;
-}
-
-.sanidad-subtitle {
-  color: #6B7280;
-  font-size: 0.9rem;
-}
-
-.form-card, .table-card {
-  background-color: #FFFFFF !important;
-  color: #1F2937 !important;
-  border-radius: 8px;
-  border: 1px solid #E5E7EB;
-  padding: 1.5rem;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-.form-card h3, .table-card h3 {
-  color: #00324D;
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
+/* --- Deja tu formulario de arriba intacto como lo tienes --- */
 .sanidad-form {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
   align-items: flex-end;
+  margin-top: 1rem;
 }
 
 .form-group {
@@ -54,11 +22,13 @@
 .form-group input, .form-group select {
   background-color: #FFFFFF !important;
   color: #1F2937 !important;
-  padding: 8px 12px;
+  padding: 10px 12px;
   border: 1px solid #D1D5DB !important;
   border-radius: 6px;
   font-size: 0.9rem;
   outline: none;
+  width: 100%;
+  box-sizing: border-box;
   transition: border-color 0.2s;
 }
 
@@ -72,7 +42,9 @@
 }
 
 .form-actions {
+  grid-column: span 1; 
   display: flex;
+  justify-content: flex-end;
   align-items: flex-end;
 }
 
@@ -80,21 +52,25 @@
   background-color: #39A900;
   color: #FFFFFF;
   border: none;
-  padding: 9px 16px;
+  padding: 10px 24px;
   border-radius: 6px;
   font-weight: 600;
   font-size: 0.9rem;
   cursor: pointer;
   transition: background-color 0.2s;
   width: 100%;
+  height: 41px;
 }
 
 .btn-guardar:hover {
   background-color: #2e8800;
 }
 
+
+/* --- TABLA INFERIOR CORREGIDA Y ALINEADA --- */
 .table-responsive {
   overflow-x: auto;
+  margin-top: 1rem;
 }
 
 .sanidad-table {
@@ -102,20 +78,39 @@
   border-collapse: collapse;
   text-align: left;
   font-size: 0.9rem;
+  table-layout: fixed; /* Mantiene los anchos fijos organizados */
+}
+
+.sanidad-table th, 
+.sanidad-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #F3F4F6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .sanidad-table th {
   background-color: #F9FAFB !important;
   color: #4B5563 !important;
-  padding: 10px 14px;
   font-weight: 600;
-  border-bottom: 1px solid #E5E7EB;
+  vertical-align: middle;
 }
 
 .sanidad-table td {
-  padding: 12px 14px;
-  border-bottom: 1px solid #F3F4F6;
   color: #374151 !important;
+  vertical-align: middle;
+}
+
+/* Distribución exacta de anchos para las 5 columnas de la tabla de salud */
+.sanidad-table th:nth-child(1), .sanidad-table td:nth-child(1) { width: 18%; } /* Ejemplar */
+.sanidad-table th:nth-child(2), .sanidad-table td:nth-child(2) { width: 28%; } /* Procedimiento / Tratamiento */
+.sanidad-table th:nth-child(3), .sanidad-table td:nth-child(3) { width: 16%; } /* Fecha (ancho suficiente para no partirse) */
+.sanidad-table th:nth-child(4), .sanidad-table td:nth-child(4) { width: 20%; } /* Veterinario Responsable */
+.sanidad-table th:nth-child(5), .sanidad-table td:nth-child(5) { width: 18%; text-align: center; } /* Estado */
+
+.sanidad-table td:nth-child(5) {
+  overflow: visible;
 }
 
 .col-equino {
@@ -129,10 +124,13 @@
 }
 
 .badge-estado {
-  padding: 4px 10px;
+  display: inline-block;
+  padding: 5px 12px;
   border-radius: 12px;
   font-size: 0.75rem;
   font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .badge-estado.completado { background-color: #DEF7EC; color: #03543F; }
