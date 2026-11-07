@@ -75,14 +75,14 @@ export default function Login({ onLoginSuccess }) {
                 className="login-logo-top"
               />
               <h2>Iniciar Sesión</h2>
-              <p>Ingresa con tu correo institucional (@sena.edu.co o @misena.edu.co).</p>
+              <p>Ingresa con tu correo</p>
             </div>
 
             {error && <div className="login-error-msg">{error}</div>}
 
             <form onSubmit={handleSubmit}>
               <div className="login-form-group">
-                <label>Correo Electrónico Institucional</label>
+                <label>Correo Electrónico</label>
                 <input
                   type="email"
                   name="correo"
